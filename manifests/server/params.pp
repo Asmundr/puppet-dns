@@ -8,6 +8,14 @@ class dns::server::params {
        $service = 'bind9'
        $necessary_packages = [ 'bind9', 'dnssec-tools']
     }
+    'Archlinux': {
+       $cfg_dir = '/etc/bind'
+       $group   = 'bind'
+       $owner   = 'bind'
+       $package = 'bind'
+       $service = 'named'
+       $necessary_packages = [ 'bind', 'dnssec-tools']
+    }
     default: { 
       fail("dns::server is incompatible with this osfamily: ${::osfamily}")
     }
