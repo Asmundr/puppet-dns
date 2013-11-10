@@ -25,7 +25,7 @@ define dns::acl (
 
   concat::fragment { "named.conf.local.acl.${name}.include":
     ensure  => $ensure,
-    target  => '/etc/bind/named.conf.local',
+    target  => '${cfg_dir}/named.conf.local',
     order   => 2,
     content => template("${module_name}/acl.erb"),
   }
