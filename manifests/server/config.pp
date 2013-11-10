@@ -24,7 +24,7 @@ class dns::server::config inherits dns::server::params {
     owner   => $owner,
     group   => $group,
     mode    => '0644',
-    require => [File['/etc/bind'], Class['dns::server::install']],
+    require => [File["${cfg_dir}"], Class['dns::server::install']],
     notify  => Class['dns::server::service'],
   }
 
