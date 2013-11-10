@@ -14,9 +14,9 @@ class dns::server::params {
           $cfg_dir = '/etc/bind'
           $group   = 'bind'
           $owner   = 'bind'
-          $package = 'bind9'
-          $service = 'bind9'
-          $necessary_packages = [ 'bind9', 'dnssec-tools']
+          $package = 'bind'
+          $service = 'bind'
+          $necessary_packages = [ 'bind', 'dnssec-tools']
         }
         default: {
           fail("dns::server isn't supported on all RedHat versions")
