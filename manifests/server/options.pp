@@ -24,7 +24,7 @@ class dns::server::options (
     owner   => $owner,
     group   => $group,
     mode    => '0644',
-    require => [File[${cfg_dir}], Class['dns::server::install']],
+    require => [File["$cfg_dir"], Class['dns::server::install']],
 	content => template("${module_name}/named.conf.options.erb"),
     notify  => Class['dns::server::service'],
   }
