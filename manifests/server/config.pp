@@ -47,7 +47,7 @@ class dns::server::config inherits dns::server::params {
     'Fedora': {
       file { "/etc/sysconfig/named" :
          ensure  => present,
-         content => "-c $cfg_dir/named.conf",
+         content => "OPTIONS=\"-c $cfg_dir/named.conf\"",
          require => Class['dns::server::install'],
       }
     }
