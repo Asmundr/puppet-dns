@@ -9,7 +9,7 @@ define dns::record (
   $order = 9
 ) {
 
-  $zone_file = "${cfg_dir}/zones/db.${zone}"
+  $zone_file = "${dns::server::params::cfg_dir}/zones/db.${zone}"
 
   concat::fragment{"db.${zone}.${name}.record":
     target  => $zone_file,

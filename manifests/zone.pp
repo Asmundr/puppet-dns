@@ -28,7 +28,7 @@ define dns::zone (
     default => $name
   }
 
-  $zone_file = "${cfg_dir}/zones/db.${name}"
+  $zone_file = "${dns::server::params::cfg_dir}/zones/db.${name}"
 
   if $ensure == absent {
     file { $zone_file:
@@ -53,7 +53,7 @@ define dns::zone (
   # Include Zone in named.conf.local
   concat::fragment{"named.conf.local.${name}.include":
     ensure  => $ensure,
-    target  => '${cfg_dir}/named.conf.local',
+    target  => '${dns::server::params::cfg_dir}/named.conf.local',
     order   => 3,
     content => template("${module_name}/zone.erb")
   }
