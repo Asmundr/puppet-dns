@@ -11,7 +11,7 @@ class dns::server::params {
     'RedHat': {
       case $operatingsystem {
         'Fedora': {
-          $cfg_dir = '/etc/bind'
+          $cfg_dir = '/etc/named'
           $group   = 'named'
           $owner   = 'named'
           $package = 'bind'
