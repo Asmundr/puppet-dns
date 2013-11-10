@@ -15,9 +15,9 @@
 #    'forwarders' => [ '8.8.8.8', '8.8.4.4' ],
 #   }
 #
-class dns::server::options inherits dns::server::params (
+class dns::server::options (
   $forwarders = [],
-) {
+) inherits dns::server::params {
 
   file { $title:
     ensure  => present,
