@@ -12,10 +12,10 @@ class dns::server::params {
       case $operatingsystem {
         'Fedora': {
           $cfg_dir = '/etc/bind'
-          $group   = 'bind'
-          $owner   = 'bind'
+          $group   = 'named'
+          $owner   = 'named'
           $package = 'bind'
-          $service = 'bind'
+          $service = 'named'
           $necessary_packages = [ 'bind', 'dnssec-tools']
         }
         default: {
