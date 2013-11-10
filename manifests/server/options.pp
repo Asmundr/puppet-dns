@@ -15,7 +15,7 @@
 #    'forwarders' => [ '8.8.8.8', '8.8.4.4' ],
 #   }
 #
-class dns::server::options (
+define dns::server::options (
   $forwarders = [],
 ) inherits dns::server::params {
 
