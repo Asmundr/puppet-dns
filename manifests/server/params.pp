@@ -18,6 +18,9 @@ class dns::server::params {
           $service = 'bind9'
           $necessary_packages = [ 'bind9', 'dnssec-tools']
         }
+        default: {
+          fail("dns::server isn't supported on all RedHat versions")
+        }
       }
     }
     default: { 
