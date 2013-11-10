@@ -37,8 +37,8 @@ define dns::zone (
   } else {
     # Zone Database
     concat { $zone_file:
-      owner   => 'bind',
-      group   => 'bind',
+      owner   => "$dns::server::params::owner",
+      group   => "$dns::server::params::group",
       mode    => '0644',
       require => [Class['concat::setup'], Class['dns::server']],
       notify  => Class['dns::server::service']
