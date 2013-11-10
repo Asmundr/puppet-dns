@@ -43,4 +43,15 @@ class dns::server::config inherits dns::server::params {
     content => "// File managed by Puppet.\n"
   }
 
+  case $operatingsystem {
+    'Fedora': {
+      file { "/etc/sysconf/named" :
+         ensure  => present,
+         content => "-c $cfg_dir/named.conf",
+      }
+    }
+    default:{
+
+    }
+  }
 }
