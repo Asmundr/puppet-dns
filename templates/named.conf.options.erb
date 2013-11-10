@@ -1,5 +1,12 @@
 options {
+<% if operatingsystem == 'Fedora' then -%>
+	directory "/var/named";
+	dump-file "/var/named/data/cache-dump.db";
+	statistics-file "/var/named/data/named_stats.txt";
+	memstatistics-file "/var/named/data/named_mem_stats.txt";
+<% else -%>
 	directory "/var/cache/bind";
+<% end -%>
 
 	// If there is a firewall between you and nameservers you want
 	// to talk to, you may need to fix the firewall to allow multiple
