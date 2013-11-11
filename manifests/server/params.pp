@@ -9,8 +9,6 @@ class dns::server::params {
        $service = 'bind9'
        $necessary_packages = [ 'bind9', 'dnssec-tools']
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
     'RedHat': {
       case $operatingsystem {
         'Fedora': {
@@ -26,9 +24,6 @@ class dns::server::params {
           fail("dns::server isn't supported on all RedHat versions")
         }
       }
-=======
-=======
->>>>>>> 40c198aefcbc019660e8a0a67b13b4688e17dc23
     'Archlinux': {
        $cfg_dir = '/etc/bind'
        $group   = 'bind'
@@ -36,10 +31,6 @@ class dns::server::params {
        $package = 'bind'
        $service = 'named'
        $necessary_packages = [ 'bind', 'dnssec-tools']
-<<<<<<< HEAD
->>>>>>> Add ArchLinux params
-=======
->>>>>>> 40c198aefcbc019660e8a0a67b13b4688e17dc23
     }
     default: { 
       fail("dns::server is incompatible with this osfamily: ${::osfamily}")
