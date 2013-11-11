@@ -27,6 +27,7 @@ class dns::server::params {
     }
     'Archlinux': {
        $cfg_dir = '/etc/bind'
+       $cfg_file = '/etc/bind/named.conf'
        $group   = 'bind'
        $owner   = 'bind'
        $package = 'bind'
