@@ -24,6 +24,7 @@ class dns::server::params {
           fail("dns::server isn't supported on all RedHat versions")
         }
       }
+    }
     'Archlinux': {
        $cfg_dir = '/etc/bind'
        $group   = 'bind'
