@@ -2,6 +2,7 @@ class dns::server::params {
   case $osfamily {
     'Debian': {
        $cfg_dir = '/etc/bind'
+       $cfg_file = "${$cfg_file}/named.conf"
        $group   = 'bind'
        $owner   = 'bind'
        $package = 'bind9'
@@ -12,6 +13,7 @@ class dns::server::params {
       case $operatingsystem {
         'Fedora': {
           $cfg_dir = '/etc/named'
+          $cfg_file = '/etc/named.conf'
           $group   = 'named'
           $owner   = 'named'
           $package = 'bind'

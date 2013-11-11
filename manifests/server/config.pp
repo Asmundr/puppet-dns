@@ -19,13 +19,14 @@ class dns::server::config inherits dns::server::params {
     mode   => '0755',
   }
 
-  file { "${cfg_dir}/named.conf":
+  file { "${cfg_file}":
     ensure  => present,
     owner   => $owner,
     group   => $group,
     mode    => '0644',
     require => [File["${cfg_dir}"], Class['dns::server::install']],
     notify  => Class['dns::server::service'],
+    content => "include \"${cfg_dir}/named.conf.options\";\ninclude \"${cfg_dir}/named.conf.local\";\n"
   }
 
   concat { "${cfg_dir}/named.conf.local":
@@ -43,16 +44,4 @@ class dns::server::config inherits dns::server::params {
     content => "// File managed by Puppet.\n"
   }
 
-  case $operatingsystem {
-    'Fedora': {
-      file { "/etc/sysconfig/named" :
-         ensure  => present,
-         content => "OPTIONS=\"-c $cfg_dir/named.conf\"",
-         require => Class['dns::server::install'],
-      }
-    }
-    default:{
-
-    }
-  }
 }
