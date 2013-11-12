@@ -1,5 +1,5 @@
 options {
-<% if operatingsystem == 'Fedora' then -%>
+<% if (operatingsystem == 'Fedora') || (operatingsystem == 'Archlinux') then -%>
 	directory "/var/named";
 	dump-file "/var/named/data/cache-dump.db";
 	statistics-file "/var/named/data/named_stats.txt";
