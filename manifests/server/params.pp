@@ -27,9 +27,9 @@ class dns::server::params {
     }
     'Archlinux': {
        $cfg_dir = '/etc/bind'
-       $cfg_file = '/etc/bind/named.conf'
-       $group   = 'bind'
-       $owner   = 'bind'
+       $cfg_file = '/etc/named.conf'
+       $group   = 'named'
+       $owner   = 'named'
        $package = 'bind'
        $service = 'named'
        $necessary_packages = [ 'bind', 'dnssec-tools']
