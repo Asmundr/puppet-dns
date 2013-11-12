@@ -20,7 +20,7 @@ define dns::server::options (
 ) {
 
   file { $title:
-    ensure  => present,
+    ensure  => file,
     owner   => $owner,
     group   => $group,
     mode    => '0644',
