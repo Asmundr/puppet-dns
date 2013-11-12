@@ -20,7 +20,6 @@ class dns::server::config inherits dns::server::params {
   }
 
   file { "${cfg_file}":
-    ensure  => present,
     owner   => $owner,
     group   => $group,
     mode    => '0644',
