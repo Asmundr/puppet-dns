@@ -25,6 +25,15 @@ class dns::server::params {
         }
       }
     }
+    'Archlinux': {
+       $cfg_dir = '/etc/bind'
+       $cfg_file = '/etc/named.conf'
+       $group   = 'named'
+       $owner   = 'named'
+       $package = 'bind'
+       $service = 'named'
+       $necessary_packages = [ 'bind' ]
+    }
     default: { 
       fail("dns::server is incompatible with this osfamily: ${::osfamily}")
     }
