@@ -11,7 +11,7 @@ define dns::key {
   exec {"dnssec-keygen-${name}":
     command     => "/usr/sbin/dnssec-keygen -a HMAC-MD5 -r /dev/urandom -b 128 -n USER ${name}",
     cwd         => "${dns::server::params::cfg_dir}/bind.keys.d",
-    require     => [Package["dnssec-tools","bind9"],File["${dns::server::params::cfg_dir}/bind.keys.d"]],
+    require     => [Class["dns::server::install"],File["${dns::server::params::cfg_dir}/bind.keys.d"]],
     refreshonly => true,
     notify => Exec["get-secret-from-${name}"],
   }
